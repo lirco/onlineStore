@@ -47,7 +47,7 @@ var ProductSchema = new Schema({
     trim: true
   },
   mainImage: {
-    type: string,
+    type: String,
     default: '',
     required: 'Please insert product main image',
     trim: true
