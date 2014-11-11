@@ -11,7 +11,7 @@ angular.module('store').config(['$stateProvider', '$urlRouterProvider',
 
         .state('store', {
             url: '/store',
-            templateUrl: 'modules/store/views/store.client.view.html',
+            templateUrl: 'modules/store/views/store_main/store.client.view.html',
             controller: 'storeController',
             controllerAs: 'storeCtrl',
             resolve: {
@@ -27,13 +27,13 @@ angular.module('store').config(['$stateProvider', '$urlRouterProvider',
         .state("store.views", {
             views: {
                 "header": {
-                    templateUrl: 'modules/store/views/sub_views/storeHeader.html'
+                    templateUrl: 'modules/store/views/store_main/sub_views/storeHeader.html'
                 },
                 "sidebar": {
-                    templateUrl: 'modules/store/views/sub_views/storeSideBar.html'
+                    templateUrl: 'modules/store/views/store_main/sub_views/storeSideBar.html'
                 },
                 "main": {
-                    templateUrl: 'modules/store/views/sub_views/storeMain.html'
+                    templateUrl: 'modules/store/views/store_main/sub_views/storeMain.html'
                 },
                 "footer": {
                     templateUrl: 'modules/core/views/footer.client.view.html'
