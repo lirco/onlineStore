@@ -1,0 +1,44 @@
+'use strict';
+
+// Setting up route
+angular.module('store').config(['$stateProvider', '$urlRouterProvider',
+	function($stateProvider, $urlRouterProvider) {
+		// Redirect to home view when route not found
+		$urlRouterProvider.otherwise('/');
+
+		// Home state routing
+		$stateProvider
+
+        .state('store', {
+            url: '/store',
+            templateUrl: 'modules/store/views/store.client.view.html',
+            controller: 'storeController',
+            controllerAs: 'storeCtrl',
+            resolve: {
+                products : function(localDataService){
+                    return localDataService.get('products');
+                },
+                categories : function(localDataService){
+                    return localDataService.get('appData');
+                }
+            }
+        })
+
+        .state("store.views", {
+            views: {
+                "header": {
+                    templateUrl: 'modules/store/views/sub_views/storeHeader.html'
+                },
+                "sidebar": {
+                    templateUrl: 'modules/store/views/sub_views/storeSideBar.html'
+                },
+                "main": {
+                    templateUrl: 'modules/store/views/sub_views/storeMain.html'
+                },
+                "footer": {
+                    templateUrl: 'modules/core/views/footer.client.view.html'
+                }
+            }
+        })
+	}
+]);
