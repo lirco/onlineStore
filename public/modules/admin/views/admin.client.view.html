@@ -1,15 +1,16 @@
 <div class="container">
   <div class="page-header">
-    <h1>Hello {{authentication.user.displayName}} !</h1>
+    <h1>Hello <span data-ng-bind="adminCtrl.authentication.user.displayName"></span> !</h1>
 
     <p class="lead">You are now connected as admin</p>
   </div>
 
   <div class="row">
     <ul class="nav nav-tabs">
-      <li ui-sref-active="active"><a ui-sref="nested.user">User</a></li>
-      <li ui-sref-active="active"><a ui-sref="nested.profile">Profile</a></li>
-      <li ui-sref-active="active"><a ui-sref="nested.admin">Admin</a></li>
+      <li ui-sref-active="active"><a ui-sref="admin.dashboard">Dashboard</a></li>
+      <li ui-sref-active="active"><a ui-sref="admin.graphs">Activity Graphs</a></li>
+      <li ui-sref-active="active"><a ui-sref="admin.manageStore">Manage Store</a></li>
+      <li ui-sref-active="active"><a ui-sref="admin.orders">Orders</a></li>
     </ul>
   </div>
 

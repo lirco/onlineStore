@@ -16,5 +16,25 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider',
         controllerAs: 'adminCtrl'
       })
 
+      .state('admin.dashboard', {
+        url: '/admin/dashboard',
+        templateUrl: 'modules/admin/views/dashboard/admin.dashboard.client.view.html'
+      })
+
+      .state('admin.graphs', {
+        url: '/admin/graphs',
+        templateUrl: 'modules/admin/views/graphs/admin.graphs.client.view.html'
+      })
+
+      .state('admin.manageStore', {
+        url: '/admin/manageStore',
+        templateUrl: 'modules/admin/views/manage_store/admin.manageStore.client.view.html'
+      })
+
+      .state('admin.orders', {
+        url: '/admin/orders',
+        templateUrl: 'modules/admin/views/orders/admin.orders.client.view.html'
+      })
+
   }
 ]);
