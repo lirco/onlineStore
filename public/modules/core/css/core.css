@@ -195,3 +195,7 @@ lirco
 .thumbnail > img {
   height: 170px;
 }
+
+.admin-bar {
+    background-color: rosybrown;
+}

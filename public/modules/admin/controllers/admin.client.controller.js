@@ -5,10 +5,9 @@
 
   function adminController(state, Authentication) {
     this.authentication = Authentication;
-//    state.go('admin.views');
   }
 
-  angular.module('core')
+  angular.module('admin')
     .controller('adminController', ['$state', 'Authentication', adminController])
 
 }());
