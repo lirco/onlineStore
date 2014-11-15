@@ -26,16 +26,16 @@ angular.module('store').config(['$stateProvider', '$urlRouterProvider',
 
         .state("store.views", {
             views: {
-                "header": {
+                'header': {
                     templateUrl: 'modules/store/views/store_main/sub_views/storeHeader.html'
                 },
-                "sidebar": {
+                'sidebar': {
                     templateUrl: 'modules/store/views/store_main/sub_views/storeSideBar.html'
                 },
-                "main": {
+                'main': {
                     templateUrl: 'modules/store/views/store_main/sub_views/storeMain.html'
                 },
-                "footer": {
+                'footer': {
                     templateUrl: 'modules/core/views/footer.client.view.html'
                 }
             }

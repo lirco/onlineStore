@@ -1,6 +1,5 @@
 'use strict';
 
-
 (function () {
 
   function homeController(state, Authentication) {

@@ -36,17 +36,17 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider',
         templateUrl: 'modules/admin/views/orders/admin.orders.client.view.html'
       })
 
-      .state('admin.manageStore.addNewProduct', {
-        url: '/addNewProduct',
-        templateUrl: 'modules/admin/views/manage_store/add_new_product/admin.addNewProduct.client.view.html',
-        controller: 'addNewProductController',
-        controllerAs: 'addNewProductCtrl'
+      .state('admin.manageStore.newProduct', {
+        url: '/newProduct',
+        templateUrl: 'modules/admin/views/manage_store/add_new_product/admin.newProduct.client.view.html',
+        controller: 'newProductController',
+        controllerAs: 'newProductCtrl'
       })
 
       .state('admin.manageStore.manageProducts', {
         url: '/manageProducts',
         templateUrl: 'modules/admin/views/manage_store/manage_products/admin.manageProducts.client.view.html'
-      })
+      });
 
 
 

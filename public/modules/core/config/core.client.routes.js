@@ -18,22 +18,22 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
 
       .state('home.views', {
         views: {
-          "banner": {
+          'banner': {
             templateUrl: 'modules/core/views/sub_views/homeBanner.html'
           },
-          "section1": {
+          'section1': {
             templateUrl: 'modules/core/views/sub_views/homeSection1.html'
           },
-          "section2": {
+          'section2': {
             templateUrl: 'modules/core/views/sub_views/homeSection2.html'
           },
-          "section3": {
+          'section3': {
             templateUrl: 'modules/core/views/sub_views/homeSection3.html'
           },
-          "section4": {
+          'section4': {
             templateUrl: 'modules/core/views/sub_views/homeSection4.html'
           },
-          "footer": {
+          'footer': {
             templateUrl: 'modules/core/views/footer.client.view.html'
           }
         }
