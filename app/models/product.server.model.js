@@ -82,6 +82,10 @@ var ProductSchema = new Schema({
     type: Date,
     default: Date.now
   },
+  active: {
+    type: Boolean,
+    default: true
+  },
 	user: {
 		type: Schema.ObjectId,
 		ref: 'User'

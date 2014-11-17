@@ -3,7 +3,7 @@
 
 (function () {
 
-  function newProductController(state, scope, Products, Authentication, appState) {
+  function newProductController(state, scope, Products, Authentication, AppState) {
 
     var self = this;
 
@@ -23,13 +23,14 @@
         price: self.newProduct.price,
         mainImage: self.newProduct.mainImage,
         images: self.newProduct.images,
-        categories: self.newProduct.categories
+        categories: self.newProduct.categories,
+        active: self.newProduct.active
       });
 
       // Redirect after save
       product.$save(function(response) {
         console.log('***************************************');
-        console.log('the new product is '+ response.price);
+        console.log('the new product state is '+ response.active);
         console.log('***************************************');
 //        state.go('products/' + response._id);
 
@@ -44,7 +45,7 @@
   }
 
   angular.module('admin')
-    .controller('newProductController', ['$state', '$scope', 'Products', 'Authentication', 'appStateService', newProductController])
+    .controller('newProductController', ['$state', '$scope', 'Products', 'Authentication', 'AppStateService', newProductController])
 
 }());
 

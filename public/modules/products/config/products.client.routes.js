@@ -5,6 +5,7 @@ angular.module('products').config(['$stateProvider',
 	function($stateProvider) {
 		// Products state routing
 		$stateProvider.
+
 		state('listProducts', {
 			url: '/products',
 			templateUrl: 'modules/products/views/list-products.client.view.html'

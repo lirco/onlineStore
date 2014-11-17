@@ -1,17 +1,24 @@
+
 'use strict';
 
 (function () {
 
-    function storeController(state, products, categories) {
+  function storeController(state, products, categories) {
 
-        state.go('store.views');
+    var self = this;
 
-        this.categories = categories['data']['categories']
-        this.items = products['data']
+    state.go('store.views');
 
-    }
+    /**
+     * products and categories here are coming from the resolve on the client route.
+     * see store.client.routes
+     */
+    self.products = products;
+    self.categories = categories;
 
-    angular.module('store')
-        .controller('storeController', ['$state','products','categories', storeController])
+  }
+
+  angular.module('store')
+    .controller('storeController', ['$state','products','categories', storeController])
 
 }());

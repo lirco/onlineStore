@@ -15,11 +15,11 @@ angular.module('store').config(['$stateProvider', '$urlRouterProvider',
             controller: 'storeController',
             controllerAs: 'storeCtrl',
             resolve: {
-                products : function(localDataService){
-                    return localDataService.get('products');
+                products : function(Products){
+                    return Products.query();
                 },
-                categories : function(localDataService){
-                    return localDataService.get('appData');
+                categories : function(AppStateService){
+                    return AppStateService.categories;
                 }
             }
         })
