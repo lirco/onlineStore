@@ -6,6 +6,7 @@
 
     var self = this;
     self.authentication = Authentication;
+
   }
 
   angular.module('admin')
