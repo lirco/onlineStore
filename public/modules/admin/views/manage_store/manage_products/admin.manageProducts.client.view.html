@@ -1,1 +1,20 @@
-<p>manage products here</p>
+
+<div ng-repeat="product in manageProductsCtrl.products" class="col-sm-12 col-lg-12 col-md-12">
+  <div class="row thumbnail">
+    <div class="col-lg-1 col-md-1 col-sm-1">
+      <span class="input-group-addon"><span class="glyphicon glyphicon-trash"></span></span>
+    </div>
+
+    <div class="col-lg-10 col-md-10 col-sm-10">
+      <h5>{{product.title}}</h5>
+      <p class="pull-right">{{product.active}}</p>
+    </div>
+
+    <div class="col-lg-1 col-md-1 col-sm-1">
+      <button class="button btn-danger" ng-click="manageProductsCtrl.remove(product)"><span  class="glyphicon glyphicon-pencil"></span></button>
+
+    </div>
+
+  </div>
+
+</div>

@@ -45,7 +45,14 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider',
 
       .state('admin.manageStore.manageProducts', {
         url: '/manageProducts',
-        templateUrl: 'modules/admin/views/manage_store/manage_products/admin.manageProducts.client.view.html'
+        templateUrl: 'modules/admin/views/manage_store/manage_products/admin.manageProducts.client.view.html',
+        controller: 'manageProductsController',
+        controllerAs: 'manageProductsCtrl',
+        resolve: {
+          products : function(Products){
+            return Products.query();
+          }
+        }
       });
 
 
