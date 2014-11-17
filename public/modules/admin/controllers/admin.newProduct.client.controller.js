@@ -29,10 +29,8 @@
 
       // Redirect after save
       product.$save(function(response) {
-        console.log('***************************************');
-        console.log('the new product state is '+ response.active);
-        console.log('***************************************');
-//        state.go('products/' + response._id);
+
+        state.go('#!/products/' + response._id);
 
         // Clear form fields
         self.newProduct= '';
