@@ -7,22 +7,7 @@
    */
   function AppStateService() {
 
-    var self = this;
-
-    self.newProduct = {
-      title: '',
-      shortDescription: '',
-      fullDescription: '',
-      colors: self.colors,
-      sizes: self.sizes,
-      price: '',
-      mainImage: self.mainImage,
-      images: self.images,
-      categories: self.categories,
-      active: true
-    };
-
-    self.categories = [
+    var categories = [
       'Men',
       'Women',
       'Surfboards',
@@ -32,7 +17,7 @@
       'Leash'
     ];
 
-    self.colors = [
+    var colors = [
       'Black',
       'White',
       'Brown',
@@ -41,25 +26,49 @@
       'Blue'
     ];
 
-    self.sizes = [
+    var sizes = [
       'S',
       'M',
       'L',
       'XL'
     ];
 
-    self.mainImage = 'http://images.fineartamerica.com/images-medium-large/surfer-bus-nick-diemel.jpg';
+    var mainImage = 'http://images.fineartamerica.com/images-medium-large/surfer-bus-nick-diemel.jpg';
 
-    self.images = [
+    var images = [
       'http://images.fineartamerica.com/images-medium-large/surfer-bus-nick-diemel.jpg',
       'http://www.soflosurfschool.com/images/IMG_9461.jpg',
       'http://www.tjeys.net/image/surfboard/dbfunturquis.jpg',
       'http://www.surfcupe.com.br/images/gallery/big/700086d9e46682729d6666fb56a3f81c.jpg'
     ];
 
+    var newProduct = {
+
+      title: '',
+      shortDescription: '',
+      fullDescription: '',
+      colors: colors,
+      sizes: sizes,
+      price: '',
+      mainImage: mainImage,
+      images: images,
+      categories: categories,
+      active: true
+
+    };
+
+    return {
+      newProduct: function() {
+        return newProduct;
+      },
+      categories: function() {
+        return categories;
+      }
+    }
+
   }
 
   angular.module('core')
-    .service('AppStateService', [AppStateService])
+    .factory('AppStateService', [AppStateService])
 
 }());

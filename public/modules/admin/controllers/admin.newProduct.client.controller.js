@@ -9,7 +9,7 @@
 
     self.authentication = Authentication;
 
-    self.newProduct = appState.newProduct;
+    self.newProduct = AppState.newProduct();
 
     // Create new Product
     self.create = function() {

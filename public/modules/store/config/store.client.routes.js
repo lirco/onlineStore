@@ -19,7 +19,7 @@ angular.module('store').config(['$stateProvider', '$urlRouterProvider',
                     return Products.query();
                 },
                 categories : function(AppStateService){
-                    return AppStateService.categories;
+                    return AppStateService.categories();
                 }
             }
         })
