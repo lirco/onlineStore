@@ -13,6 +13,7 @@
       var product = self.product ;
 
       product.$update(function() {
+        AppState.setActiveProduct({});
         state.go('viewProduct', {productId: product._id});
       }, function(errorResponse) {
         scope.error = errorResponse.data.message;

@@ -1,27 +1,47 @@
 
 <div class="container">
   <div class="row">
-    <form role="form" ng-submit="newProductCtrl.create()">
+    <form role="form" ng-submit="newProductCtrl.create()" name="newProductForm">
       <div class="col-lg-6">
 
         <div class="form-group">
           <div class="input-group">
-            <input type="text" class="form-control" ng-model="newProductCtrl.newProduct.title" placeholder="Product Title">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <input name="title" required type="text" class="form-control" ng-model="newProductCtrl.newProduct.title" placeholder="Product Title">
+            <!-- glyphicons for validation -->
+            <span ng-show="newProductForm.title.$pristine || newProductForm.title.$dirty&&newProductForm.title.$invalid" class="input-group-addon">
+              <span class="glyphicon glyphicon-asterisk"></span>
+            </span>
+            <span ng-show="newProductForm.title.$valid" class="input-group-addon">
+              <span class="glyphicon glyphicon-ok"></span>
+            </span>
+
+
           </div>
         </div>
 
         <div class="form-group">
           <div class="input-group">
-            <textarea class="form-control" ng-model="newProductCtrl.newProduct.shortDescription" placeholder="Short Product Description" rows="2"></textarea>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <textarea name="shortDescription" required class="form-control" ng-model="newProductCtrl.newProduct.shortDescription" placeholder="Short Product Description" rows="2"></textarea>
+            <!-- glyphicons for validation -->
+            <span ng-show="newProductForm.shortDescription.$pristine || newProductForm.shortDescription.$dirty&&newProductForm.shortDescription.$invalid" class="input-group-addon">
+              <span class="glyphicon glyphicon-asterisk"></span>
+            </span>
+            <span ng-show="newProductForm.shortDescription.$valid" class="input-group-addon">
+              <span class="glyphicon glyphicon-ok "></span>
+            </span>
           </div>
         </div>
 
         <div class="form-group">
           <div class="input-group">
-            <textarea class="form-control" ng-model="newProductCtrl.newProduct.fullDescription" placeholder="Full Product Description" rows="5"></textarea>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <textarea name="fullDescription" required class="form-control" ng-model="newProductCtrl.newProduct.fullDescription" placeholder="Full Product Description" rows="5"></textarea>
+            <!-- glyphicons for validation -->
+            <span ng-show="newProductForm.fullDescription.$pristine || newProductForm.fullDescription.$dirty&&newProductForm.fullDescription.$invalid" class="input-group-addon">
+              <span class="glyphicon glyphicon-asterisk"></span>
+            </span>
+            <span ng-show="newProductForm.fullDescription.$valid" class="input-group-addon">
+              <span class="glyphicon glyphicon-ok "></span>
+            </span>
           </div>
         </div>
 
@@ -31,8 +51,14 @@
 
         <div class="form-group">
           <div class="input-group">
-            <input type="text" class="form-control" ng-model="newProductCtrl.newProduct.price" placeholder="Product Price">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <input name="price" required type="number" class="form-control" ng-model="newProductCtrl.newProduct.price" placeholder="Product Price">
+            <!-- glyphicons for validation -->
+            <span ng-show="newProductForm.price.$pristine || newProductForm.price.$dirty&&newProductForm.price.$invalid" class="input-group-addon">
+              <span class="glyphicon glyphicon-asterisk"></span>
+            </span>
+            <span ng-show="newProductForm.price.$valid" class="input-group-addon">
+              <span class="glyphicon glyphicon-ok "></span>
+            </span>
           </div>
         </div>
 
@@ -45,7 +71,7 @@
           <button type="button" class="btn btn-info pull-right">preview</button>
         </div>
         <div class="col-lg-2">
-          <input type="submit" value="Add" class="btn btn-success pull-right">
+          <input type="submit" value="Add" ng-disabled="newProductForm.$invalid" class="btn btn-success pull-right">
         </div>
 
       </div>
