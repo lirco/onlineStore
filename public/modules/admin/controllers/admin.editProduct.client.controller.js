@@ -8,20 +8,12 @@
 
     self.product = AppState.getActiveProduct();
 
-    console.log('***************************************');
-    console.log(self.product);
-    console.log('***************************************');
-
-//    self.product = Products.get({
-//      productId: stateParams.productId
-//    });
-
     // Update existing Product
     self.update = function() {
       var product = self.product ;
 
       product.$update(function() {
-        state.go('products/' + product._id);
+        state.go('viewProduct', {productId: product._id});
       }, function(errorResponse) {
         scope.error = errorResponse.data.message;
       });
