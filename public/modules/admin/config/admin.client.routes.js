@@ -55,11 +55,11 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider',
         }
       })
 
-    .state('admin.editProduct', {
+    .state('editProduct', {
       url: '/editProduct/:productId',
-      templateUrl: 'modules/admin/views/manage_store/edit_products/admin.editProduct.client.view.html',
+      templateUrl: 'modules/admin/views/manage_store/edit_product/admin.editProduct.client.view.html',
       controller: 'editProductController',
-      controllerAs: 'editProductsCtrl'
+      controllerAs: 'editProductCtrl'
     });
 
 

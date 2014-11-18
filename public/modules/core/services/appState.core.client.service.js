@@ -33,6 +33,11 @@
       'XL'
     ];
 
+    /**
+     * images are temporally hard-coded
+     *
+     * @type {string}
+     */
     var mainImage = 'http://images.fineartamerica.com/images-medium-large/surfer-bus-nick-diemel.jpg';
 
     var images = [
@@ -42,8 +47,13 @@
       'http://www.surfcupe.com.br/images/gallery/big/700086d9e46682729d6666fb56a3f81c.jpg'
     ];
 
+    /**
+     * instance of newProduct.
+     * temporary object for building purpose
+     *
+     * @type {{title: string, shortDescription: string, fullDescription: string, colors: string[], sizes: string[], price: string, mainImage: string, images: string[], categories: string[], active: boolean}}
+     */
     var newProduct = {
-
       title: '',
       shortDescription: '',
       fullDescription: '',
@@ -54,8 +64,14 @@
       images: images,
       categories: categories,
       active: true
-
     };
+
+    /**
+     * active product for editing products
+     *
+     * @type {{}}
+     */
+    var activeProduct = {};
 
     return {
       newProduct: function() {
@@ -63,6 +79,13 @@
       },
       categories: function() {
         return categories;
+      },
+      setActiveProduct: function(product) {
+        activeProduct = product;
+        return activeProduct;
+      },
+      getActiveProduct: function() {
+        return activeProduct
       }
     }
 

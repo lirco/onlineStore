@@ -2,7 +2,7 @@
 
 (function () {
 
-  function manageProductsController(state, products) {
+  function manageProductsController(state, products, appState) {
 
     var self = this;
 
@@ -17,10 +17,6 @@
     self.remove = function(product) {
       if ( product ) { product.$remove();
 
-        console.log('***************************************');
-        console.log(product);
-        console.log('***************************************');
-
         for (var i in self.products ) {
           if (self.products [i] === product ) {
             self.products.splice(i, 1);
@@ -34,13 +30,14 @@
     };
 
     self.edit = function(product) {
-      state.go('/#!/admin/editProduct/' + product._id);
+      appState.setActiveProduct(product);
+      state.go('editProduct', {'productId': product._id} );
     }
 
   }
 
 
   angular.module('admin')
-    .controller('manageProductsController', ['$state','products', manageProductsController])
+    .controller('manageProductsController', ['$state','products','AppStateService', manageProductsController])
 
 }());

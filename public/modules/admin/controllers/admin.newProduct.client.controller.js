@@ -30,7 +30,7 @@
       // Redirect after save
       product.$save(function(response) {
 
-        state.go('#!/products/' + response._id);
+        state.go('viewProduct', {'productId': response._id});
 
         // Clear form fields
         self.newProduct= '';

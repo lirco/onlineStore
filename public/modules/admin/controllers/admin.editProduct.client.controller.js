@@ -2,13 +2,19 @@
 
 (function () {
 
-  function editProductController(state, stateParams, Products) {
+  function editProductController(scope, state, stateParams, Products, AppState) {
 
     var self = this;
 
-    self.product = Products.get({
-      productId: stateParams.productId
-    });
+    self.product = AppState.getActiveProduct();
+
+    console.log('***************************************');
+    console.log(self.product);
+    console.log('***************************************');
+
+//    self.product = Products.get({
+//      productId: stateParams.productId
+//    });
 
     // Update existing Product
     self.update = function() {
@@ -17,13 +23,13 @@
       product.$update(function() {
         state.go('products/' + product._id);
       }, function(errorResponse) {
-        $scope.error = errorResponse.data.message;
+        scope.error = errorResponse.data.message;
       });
     };
 
   }
 
   angular.module('admin')
-    .controller('editProductController', ['$state','$stateParams','Products', editProductController])
+    .controller('editProductController', ['$scope','$state','$stateParams','Products','AppStateService', editProductController])
 
 }());
