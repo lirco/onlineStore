@@ -53,7 +53,7 @@ exports.update = function(req, res) {
 };
 
 /**
- * Delete an Product
+ * Delete a Product
  */
 exports.delete = function(req, res) {
 	var product = req.product ;
@@ -96,10 +96,11 @@ exports.productByID = function(req, res, next, id) { Product.findById(id).popula
 
 /**
  * Product authorization middleware
+ * only admin can make changes on products
  */
 exports.hasAuthorization = function(req, res, next) {
-	if (req.product.user.id !== req.user.id) {
-		return res.status(403).send('User is not authorized');
+	if (req.user.roles[0] !== 'admin') {
+		return res.status(403).send('User is not authorized. Has to be admin to make changes');
 	}
 	next();
 };

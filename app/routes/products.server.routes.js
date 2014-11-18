@@ -7,7 +7,7 @@ module.exports = function(app) {
 	// Products Routes
 	app.route('/products')
 		.get(products.list)
-		.post(users.requiresLogin, products.create);
+		.post(users.requiresLogin, products.hasAuthorization, products.create);
 
 	app.route('/products/:productId')
 		.get(products.read)

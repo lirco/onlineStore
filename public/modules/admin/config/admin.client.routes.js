@@ -53,8 +53,14 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider',
             return Products.query();
           }
         }
-      });
+      })
 
+    .state('admin.editProduct', {
+      url: '/editProduct/:productId',
+      templateUrl: 'modules/admin/views/manage_store/edit_products/admin.editProduct.client.view.html',
+      controller: 'editProductController',
+      controllerAs: 'editProductsCtrl'
+    });
 
 
   }
