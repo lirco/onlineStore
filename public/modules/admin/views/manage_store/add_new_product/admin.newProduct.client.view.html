@@ -62,7 +62,31 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <select name="colors" required class="form-control"
+                  ng-model="newProductCtrl.newProduct.colors"
+                  ng-options="c as c for c in newProductCtrl.colors">
+            <option value="">-- choose color --</option>
+          </select>
+        </div>
 
+        <div class="form-group">
+          <select name="sizes" required class="form-control"
+                  ng-model="newProductCtrl.newProduct.sizes"
+                  ng-options="c as c for c in newProductCtrl.sizes">
+            <option value="">-- choose size --</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select name="categories" required class="form-control"
+                  ng-model="newProductCtrl.newProduct.categories"
+                  ng-options="c as c for c in newProductCtrl.categories">
+            <option value="">-- choose category --</option>
+          </select>
+        </div>
+
+        <!-- form buttons -->
         <div class="col-lg-6"></div>
         <div class="col-lg-2">
           <button type="button" class="btn btn-danger pull-right">cancel</button>

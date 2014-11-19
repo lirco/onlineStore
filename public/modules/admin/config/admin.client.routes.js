@@ -18,7 +18,9 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider',
 
       .state('admin.dashboard', {
         url: '/dashboard',
-        templateUrl: 'modules/admin/views/dashboard/admin.dashboard.client.view.html'
+        templateUrl: 'modules/admin/views/dashboard/admin.dashboard.client.view.html',
+        controller: 'dashboardController',
+        controllerAs: 'dashboardCtrl'
       })
 
       .state('admin.graphs', {

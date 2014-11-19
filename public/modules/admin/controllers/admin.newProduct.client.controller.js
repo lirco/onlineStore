@@ -9,11 +9,17 @@
 
     self.authentication = Authentication;
 
-    self.newProduct = AppState.newProduct();
+    self.newProduct = AppState.getNewProduct();
+
+    self.colors = AppState.getColors();
+    self.sizes = AppState.getSizes();
+    self.categories = AppState.getCategories();
+
 
     // Create new Product
     self.create = function() {
       // Create new Product object
+
       var product = new Products ({
         title: self.newProduct.title,
         shortDescription: self.newProduct.shortDescription,
@@ -30,10 +36,11 @@
       // Redirect after save
       product.$save(function(response) {
 
+        // Clear form fields
+        self.newProduct= AppState.getNewProduct();
+
         state.go('viewProduct', {'productId': response._id});
 
-        // Clear form fields
-        self.newProduct= '';
       }, function(errorResponse) {
         scope.error = errorResponse.data.message;
       });

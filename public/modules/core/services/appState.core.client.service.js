@@ -57,12 +57,12 @@
       title: '',
       shortDescription: '',
       fullDescription: '',
-      colors: colors,
-      sizes: sizes,
+      colors: [],
+      sizes: [],
       price: '',
       mainImage: mainImage,
       images: images,
-      categories: categories,
+      categories: [],
       active: true
     };
 
@@ -74,10 +74,10 @@
     var activeProduct = {};
 
     return {
-      newProduct: function() {
+      getNewProduct: function() {
         return newProduct;
       },
-      categories: function() {
+      getCategories: function() {
         return categories;
       },
       setActiveProduct: function(product) {
@@ -85,7 +85,13 @@
         return activeProduct;
       },
       getActiveProduct: function() {
-        return activeProduct
+        return activeProduct;
+      },
+      getColors: function() {
+        return colors;
+      },
+      getSizes: function() {
+        return sizes;
       }
     }
 

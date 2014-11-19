@@ -1,1 +1,59 @@
-<p>dashboard will be here</p>
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading">Admin Dashboard</h2>
+        <h3 class="section-subheading text-muted">Hello <span data-ng-bind="adminCtrl.authentication.user.firstName"></span></h3>
+        <h4 class="section-subheading text-muted">What would you like to do today?</h4>
+
+      </div>
+    </div>
+
+    <!-- Projects Row -->
+    <div class="row">
+
+      <div class="col-md-6 portfolio-item">
+        <a ui-sref="admin.graphs">
+          <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+        </a>
+        <h4>
+          <a ui-sref="admin.graphs">View Activity Graphs</a></li>
+        </h4>
+      </div>
+
+      <div class="col-md-6 portfolio-item">
+        <a ui-sref="admin.orders">
+          <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+        </a>
+        <h4>
+          <a ui-sref="admin.orders">View Orders</a>
+        </h4>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <!-- Projects Row -->
+    <div class="row">
+
+      <div class="col-md-6 portfolio-item">
+        <a ui-sref="admin.manageStore.newProduct">
+          <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+        </a>
+        <h4>
+          <a ui-sref="admin.manageStore.newProduct">Add a New Product</a>
+        </h4>
+
+      </div>
+      <div class="col-md-6 portfolio-item">
+        <a ui-sref="admin.manageStore.manageProducts">
+          <img class="img-responsive" src="http://placehold.it/700x400" alt="">
+        </a>
+        <h4>
+          <a ui-sref="admin.manageStore.manageProducts">Manage Your Products</a>
+        </h4>
+      </div>
+
+    </div>
+    <!-- /.row -->
+  </div>
+</section>
