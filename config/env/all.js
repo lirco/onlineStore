@@ -38,6 +38,7 @@ module.exports = {
 			'public/modules/*/*.js',
       'public/modules/*/*/*.js',
       'public/modules/*/*/*/*.js',
+      'public/modules/*/*/*/*/*.js',
 			'public/modules/*/*[!tests]*/*.js'
 		],
 		tests: [

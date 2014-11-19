@@ -1,27 +1,48 @@
 
+
 <div class="container">
   <div class="row">
-    <form role="form" ng-submit="editProductCtrl.update()">
+    <form role="form" ng-submit="editProductCtrl.update()" name="editProductForm">
       <div class="col-lg-6">
 
         <div class="form-group">
           <div class="input-group">
-            <input type="text" class="form-control" ng-model="editProductCtrl.product.title" placeholder="Product Title">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <input name="title" required type="text" class="form-control" ng-model="editProductCtrl.product.title" placeholder="Product Title">
+            <!-- glyphicons for validation -->
+            <span ng-show="editProductForm.title.$dirty&&editProductForm.title.$invalid" class="input-group-addon">
+              <span class="glyphicon glyphicon-asterisk"></span>
+            </span>
+            <span ng-show="editProductForm.title.$valid" class="input-group-addon">
+              <span class="glyphicon glyphicon-ok"></span>
+            </span>
+
+
           </div>
         </div>
 
         <div class="form-group">
           <div class="input-group">
-            <textarea class="form-control" ng-model="editProductCtrl.product.shortDescription" placeholder="Short Product Description" rows="2"></textarea>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <textarea name="shortDescription" required class="form-control" ng-model="editProductCtrl.product.shortDescription" placeholder="Short Product Description" rows="2"></textarea>
+            <!-- glyphicons for validation -->
+            <span ng-show="editProductForm.shortDescription.$dirty&&editProductForm.shortDescription.$invalid" class="input-group-addon">
+              <span class="glyphicon glyphicon-asterisk"></span>
+            </span>
+            <span ng-show="editProductForm.shortDescription.$valid" class="input-group-addon">
+              <span class="glyphicon glyphicon-ok "></span>
+            </span>
           </div>
         </div>
 
         <div class="form-group">
           <div class="input-group">
-            <textarea class="form-control" ng-model="editProductCtrl.product.fullDescription" placeholder="Full Product Description" rows="5"></textarea>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <textarea name="fullDescription" required class="form-control" ng-model="editProductCtrl.product.fullDescription" placeholder="Full Product Description" rows="5"></textarea>
+            <!-- glyphicons for validation -->
+            <span ng-show="editProductForm.fullDescription.$dirty&&editProductForm.fullDescription.$invalid" class="input-group-addon">
+              <span class="glyphicon glyphicon-asterisk"></span>
+            </span>
+            <span ng-show="editProductForm.fullDescription.$valid" class="input-group-addon">
+              <span class="glyphicon glyphicon-ok "></span>
+            </span>
           </div>
         </div>
 
@@ -31,12 +52,39 @@
 
         <div class="form-group">
           <div class="input-group">
-            <input type="text" class="form-control" ng-model="editProductCtrl.product.price" placeholder="Product Price">
-            <span class="input-group-addon"><span class="glyphicon glyphicon-asterisk"></span></span>
+            <input name="price" required type="number" class="form-control" ng-model="editProductCtrl.product.price" placeholder="Product Price">
+            <!-- glyphicons for validation -->
+            <span ng-show="editProductForm.price.$dirty&&editProductForm.price.$invalid" class="input-group-addon">
+              <span class="glyphicon glyphicon-asterisk"></span>
+            </span>
+            <span ng-show="editProductForm.price.$valid" class="input-group-addon">
+              <span class="glyphicon glyphicon-ok "></span>
+            </span>
           </div>
         </div>
 
+        <div class="form-group" >
+          <select name="colors" required class="form-control"
+                  ng-model="editProductCtrl.product.colors[0]"
+                  ng-options="c as c for c in editProductCtrl.colors">
+          </select>
+        </div>
 
+        <div class="form-group">
+          <select name="sizes" required class="form-control"
+                  ng-model="editProductCtrl.product.sizes[0]"
+                  ng-options="c as c for c in editProductCtrl.sizes">
+          </select>
+        </div>
+
+        <div class="form-group">
+          <select name="categories" required class="form-control"
+                  ng-model="editProductCtrl.product.categories[0]"
+                  ng-options="c as c for c in editProductCtrl.categories">
+          </select>
+        </div>
+
+        <!-- form buttons -->
         <div class="col-lg-6"></div>
         <div class="col-lg-2">
           <button type="button" class="btn btn-danger pull-right">cancel</button>
@@ -45,11 +93,11 @@
           <button type="button" class="btn btn-info pull-right">preview</button>
         </div>
         <div class="col-lg-2">
-          <input type="submit" value="Update" class="btn btn-success pull-right">
+          <input type="submit" value="Update" ng-disabled="editProductForm.$invalid" class="btn btn-success pull-right">
         </div>
 
       </div>
 
     </form>
   </div>
-</div>
+</div>        

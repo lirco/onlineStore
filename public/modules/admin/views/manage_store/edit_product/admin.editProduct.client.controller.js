@@ -8,6 +8,11 @@
 
     self.product = AppState.getActiveProduct();
 
+    self.colors = AppState.getColors();
+    self.sizes = AppState.getSizes();
+    self.categories = AppState.getCategories();
+
+
     // Update existing Product
     self.update = function() {
       var product = self.product ;

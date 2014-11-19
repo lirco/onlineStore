@@ -37,8 +37,8 @@
       product.$save(function(response) {
 
         // Clear form fields
-        self.newProduct= AppState.getNewProduct();
-
+//        self.newProduct= AppState.getNewProduct();
+//
         state.go('viewProduct', {'productId': response._id});
 
       }, function(errorResponse) {
