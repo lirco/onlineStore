@@ -3,7 +3,7 @@
 
 (function () {
 
-  function newProductController(state, scope, Products, Authentication, AppState) {
+  function newProductController(state, scope, Products, Authentication, AppState, AppData) {
 
     var self = this;
 
@@ -11,9 +11,9 @@
 
     self.newProduct = AppState.getNewProduct();
 
-    self.colors = AppState.getColors();
-    self.sizes = AppState.getSizes();
-    self.categories = AppState.getCategories();
+    self.colors = AppData.getColors();
+    self.sizes = AppData.getSizes();
+    self.categories = AppData.getCategories();
 
 
     // Create new Product
@@ -50,7 +50,7 @@
   }
 
   angular.module('admin')
-    .controller('newProductController', ['$state', '$scope', 'Products', 'Authentication', 'AppStateService', newProductController])
+    .controller('newProductController', ['$state', '$scope', 'Products', 'Authentication', 'AppStateService','AppDataFactory', newProductController])
 
 }());
 

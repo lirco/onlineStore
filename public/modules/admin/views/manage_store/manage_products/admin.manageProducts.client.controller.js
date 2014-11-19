@@ -2,7 +2,7 @@
 
 (function () {
 
-  function manageProductsController(state, products, appState) {
+  function manageProductsController(state, products, AppState) {
 
     var self = this;
 
@@ -30,7 +30,7 @@
     };
 
     self.edit = function(product) {
-      appState.setActiveProduct(product);
+      AppState.setActiveProduct(product);
       state.go('editProduct', {'productId': product._id} );
     }
 

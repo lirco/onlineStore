@@ -2,15 +2,15 @@
 
 (function () {
 
-  function editProductController(scope, state, stateParams, Products, AppState) {
+  function editProductController(scope, state, stateParams, Products, AppState, AppData) {
 
     var self = this;
 
     self.product = AppState.getActiveProduct();
 
-    self.colors = AppState.getColors();
-    self.sizes = AppState.getSizes();
-    self.categories = AppState.getCategories();
+    self.colors = AppData.getColors();
+    self.sizes = AppData.getSizes();
+    self.categories = AppData.getCategories();
 
 
     // Update existing Product
@@ -28,6 +28,6 @@
   }
 
   angular.module('admin')
-    .controller('editProductController', ['$scope','$state','$stateParams','Products','AppStateService', editProductController])
+    .controller('editProductController', ['$scope','$state','$stateParams','Products','AppStateService','AppDataFactory', editProductController])
 
 }());

@@ -1,37 +1,8 @@
 
 (function () {
 
-  /**
-   This service is temporally holding some app global data (hard-coded),
-   Which later will be fetched from the server.
-   */
+
   function AppStateService() {
-
-    var categories = [
-      'Men',
-      'Women',
-      'Surfboards',
-      'Wetsuites',
-      'Fins',
-      'Accessories',
-      'Leash'
-    ];
-
-    var colors = [
-      'Black',
-      'White',
-      'Brown',
-      'Red',
-      'Green',
-      'Blue'
-    ];
-
-    var sizes = [
-      'S',
-      'M',
-      'L',
-      'XL'
-    ];
 
     /**
      * images are temporally hard-coded
@@ -49,7 +20,6 @@
 
     /**
      * instance of newProduct.
-     * temporary object for building purpose
      *
      * @type {{title: string, shortDescription: string, fullDescription: string, colors: string[], sizes: string[], price: string, mainImage: string, images: string[], categories: string[], active: boolean}}
      */
@@ -73,31 +43,27 @@
      */
     var activeProduct = {};
 
-    return {
-      getNewProduct: function() {
-        return newProduct;
-      },
-      getCategories: function() {
-        return categories;
-      },
-      setActiveProduct: function(product) {
-        activeProduct = product;
-        return activeProduct;
-      },
-      getActiveProduct: function() {
-        return activeProduct;
-      },
-      getColors: function() {
-        return colors;
-      },
-      getSizes: function() {
-        return sizes;
-      }
-    }
+
+    //================================
+    //==========Methods===============
+    //================================
+
+    this.getNewProduct = function() {
+      return Object.create(newProduct);
+    };
+
+    this.setActiveProduct = function(product) {
+      activeProduct = product;
+      return activeProduct;
+    };
+
+    this.getActiveProduct = function() {
+      return activeProduct;
+    };
 
   }
 
   angular.module('core')
-    .factory('AppStateService', [AppStateService])
+    .service('AppStateService', [AppStateService])
 
 }());

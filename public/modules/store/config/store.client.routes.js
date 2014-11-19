@@ -18,8 +18,8 @@ angular.module('store').config(['$stateProvider', '$urlRouterProvider',
             products : function(Products){
               return Products.query();
             },
-            categories : function(AppStateService){
-              return AppStateService.getCategories();
+            categories : function(AppDataFactory){
+              return AppDataFactory.getCategories();
             }
           }
         })
