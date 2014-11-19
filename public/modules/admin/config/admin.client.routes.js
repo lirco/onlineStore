@@ -25,7 +25,9 @@ angular.module('admin').config(['$stateProvider', '$urlRouterProvider',
 
       .state('admin.graphs', {
         url: '/graphs',
-        templateUrl: 'modules/admin/views/graphs/admin.graphs.client.view.html'
+        templateUrl: 'modules/admin/views/graphs/admin.graphs.client.view.html',
+        controller: 'graphsController',
+        controllerAs: 'graphsCtrl'
       })
 
       .state('admin.manageStore', {
