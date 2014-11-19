@@ -3,7 +3,7 @@
 
 (function () {
 
-  function storeController(state, products, categories) {
+  function storeController(state, AppState, products, categories) {
 
     var self = this;
 
@@ -16,9 +16,15 @@
     self.products = products;
     self.categories = categories;
 
+    self.productClick = function(product) {
+      AppState.setActiveProduct(product);
+
+      //also add here an increment on product views
+    };
+
   }
 
   angular.module('store')
-    .controller('storeController', ['$state','products','categories', storeController])
+    .controller('storeController', ['$state','AppStateService','products','categories', storeController])
 
 }());

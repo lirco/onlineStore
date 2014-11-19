@@ -4,7 +4,7 @@
     <img ng-src={{product.mainImage}} alt="">
     <div class="caption">
       <h4 class="pull-right">{{product.price}}</h4>
-      <h4><a href="/#!/products/{{product._id}}">{{product.title}}</a>
+      <h4><a ng-click="storeCtrl.productClick(product)" href="/#!/products/{{product._id}}">{{product.title}}</a>
       </h4>
       <p>{{product.shortDescription}}</p>
     </div>

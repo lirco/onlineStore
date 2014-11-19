@@ -1,26 +1,63 @@
 
-<div class="content-section-b">
 
-  <div class="container">
+<!-- Page Content -->
+<div class="container">
 
-    <div class="row">
-      <div class="thumbnail">
-        <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-          <div class="clearfix"></div>
-          <h2 class="section-heading">{{storeProductCtrl.product.title}}</h2>
-          <p class="lead">{{storeProductCtrl.product.shortDescription}}</p>
-          <p class="lead">{{storeProductCtrl.product.fullDescription}}</p>
-          <p class="lead">{{storeProductCtrl.product.sizes}}</p>
-          <p class="lead">{{storeProductCtrl.product.colors}}</p>
-        </div>
-        <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-          <img class="img-responsive" src={{storeProductCtrl.product.mainImage}} alt="">
-        </div>
-      </div>
+  <!-- Portfolio Item Heading -->
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header">{{storeProductCtrl.product.title}}
+        <br>
+        <small>{{storeProductCtrl.product.shortDescription}}</small>
+      </h1>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-responsive" src={{storeProductCtrl.mainImage}} alt="">
+    </div>
+
+    <div class="col-md-4">
+      <h3>Product Description</h3>
+      <p>{{storeProductCtrl.product.fullDescription}}</p>
+      <h3>Product Details</h3>
+      <ul>
+        <li>size:
+        <br>
+          <p class="lead">{{storeProductCtrl.product.sizes[0]}}</p>
+        </li>
+        <li>color:
+          <br>
+          <p class="lead">{{storeProductCtrl.product.colors[0]}}</p>
+        </li>
+        <li>category:
+          <br>
+          <p class="lead">{{storeProductCtrl.product.categories[0]}}</p>
+        </li>
+      </ul>
     </div>
 
   </div>
-  <!-- /.container -->
+  <!-- /.row -->
 
+  <!-- Related Projects Row -->
+  <div class="row">
+
+    <div class="col-lg-12">
+      <h3 class="page-header">More Images</h3>
+    </div>
+
+    <div ng-repeat="image in storeProductCtrl.product.images" class="col-sm-2 col-xs-4">
+        <img ng-click="storeProductCtrl.displayImage(image)" class="img-responsive portfolio-item" src="{{image}}" alt="">
+    </div>
+
+
+  </div>
+
+  <!-- /.row -->
 </div>
-<!-- /.content-section-b -->
+
