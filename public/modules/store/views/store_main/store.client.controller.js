@@ -3,7 +3,7 @@
 
 (function () {
 
-  function storeController(state, AppState, products, categories) {
+  function storeController(state, AppState, AppData, products) {
 
     var self = this;
 
@@ -13,8 +13,18 @@
      * products and categories here are coming from the resolve on the client route.
      * see store.client.routes
      */
+
+    self.categories = [];
+
+    /**
+     * TODO: handle errors here
+     */
+    AppData.getCategories()
+      .success(function(data, status) {
+        self.categories = data;
+      });
+
     self.products = products;
-    self.categories = categories;
 
     self.productClick = function(product) {
       AppState.setActiveProduct(product);
@@ -25,6 +35,6 @@
   }
 
   angular.module('store')
-    .controller('storeController', ['$state','AppStateService','products','categories', storeController])
+    .controller('storeController', ['$state','AppStateService', 'AppDataFactory', 'products', storeController])
 
 }());

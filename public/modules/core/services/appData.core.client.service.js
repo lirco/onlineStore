@@ -3,51 +3,30 @@
 
   /**
    This service is temporally holding some app global data (hard-coded),
-   Which later will be fetched from the server.
+   Which later will be fetched from the server via redisData service
+   (Redis needs to be integrated on the server first)
+
    */
-  function AppDataFactory() {
+  function AppDataFactory($http) {
 
-    var categories = [
-      'Men',
-      'Women',
-      'Surfboards',
-      'Wetsuites',
-      'Fins',
-      'Accessories',
-      'Leash'
-    ];
-
-    var colors = [
-      'Black',
-      'White',
-      'Brown',
-      'Red',
-      'Green',
-      'Blue'
-    ];
-
-    var sizes = [
-      'S',
-      'M',
-      'L',
-      'XL'
-    ];
+    var fetchList = function(listName) {
+      return $http.get('/redis/' + listName);
+    };
 
     return {
       getCategories: function() {
-        return categories;
+        return fetchList('categories')
       },
       getColors: function() {
-        return colors;
+        return fetchList('colors');
       },
       getSizes: function() {
-        return sizes;
+        return fetchList('sizes');
       }
     }
-
   }
 
   angular.module('core')
-    .factory('AppDataFactory', [AppDataFactory])
+    .factory('AppDataFactory', ['$http', AppDataFactory])
 
 }());

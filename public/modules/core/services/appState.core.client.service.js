@@ -18,11 +18,6 @@
       'http://www.surfcupe.com.br/images/gallery/big/700086d9e46682729d6666fb56a3f81c.jpg'
     ];
 
-    /**
-     * instance of newProduct.
-     *
-     * @type {{title: string, shortDescription: string, fullDescription: string, colors: string[], sizes: string[], price: string, mainImage: string, images: string[], categories: string[], active: boolean}}
-     */
     var newProduct = {
       title: '',
       shortDescription: '',

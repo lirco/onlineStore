@@ -97,6 +97,8 @@ exports.productByID = function(req, res, next, id) { Product.findById(id).popula
 /**
  * Product authorization middleware
  * only admin can make changes on products
+ * irrelevant for now. changed by user.hasAuthorization as middleware
+ * TODO: Delete if not in use.
  */
 exports.hasAuthorization = function(req, res, next) {
 	if (req.user.roles[0] !== 'admin') {

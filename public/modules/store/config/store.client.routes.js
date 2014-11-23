@@ -17,9 +17,6 @@ angular.module('store').config(['$stateProvider', '$urlRouterProvider',
           resolve: {
             products : function(Products){
               return Products.query();
-            },
-            categories : function(AppDataFactory){
-              return AppDataFactory.getCategories();
             }
           }
         })

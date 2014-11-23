@@ -8,9 +8,25 @@
 
     self.product = AppState.getActiveProduct();
 
-    self.colors = AppData.getColors();
-    self.sizes = AppData.getSizes();
-    self.categories = AppData.getCategories();
+    self.colors = [];
+    self.categories = [];
+    self.sizes = [];
+
+    /**
+     * TODO: handle errors here once we have the logger ready
+     */
+    AppData.getCategories()
+      .success(function(data, status) {
+        self.categories = data;
+      });
+    AppData.getColors()
+      .success(function(data, status) {
+        self.colors = data;
+      });
+    AppData.getSizes()
+      .success(function(data, status) {
+        self.sizes = data;
+      });
 
 
     // Update existing Product
