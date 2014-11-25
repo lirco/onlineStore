@@ -18,7 +18,9 @@ var express = require('express'),
 	flash = require('connect-flash'),
 	config = require('./config'),
 	consolidate = require('consolidate'),
-	path = require('path');
+	path = require('path'),
+  fs = require('fs'),
+  busboy = require('connect-busboy');
 
 module.exports = function(db) {
 	// Initialize express app
@@ -85,6 +87,9 @@ module.exports = function(db) {
 	// CookieParser should be above session
 	app.use(cookieParser());
 
+  // Use Busboy for file uploads
+  app.use(busboy());
+
 	// Express MongoDB session storage
 	app.use(session({
 		saveUninitialized: true,
@@ -110,7 +115,7 @@ module.exports = function(db) {
 	app.use(helmet.ienoopen());
 	app.disable('x-powered-by');
 
-	// Setting the app router and static folder
+  // Setting the app router and static folder
 	app.use(express.static(path.resolve('./public')));
 
 	// Globbing routing files

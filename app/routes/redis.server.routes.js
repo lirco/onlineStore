@@ -26,7 +26,7 @@ module.exports = function(app) {
 
   //Start with mostViewedProduct routes
   app.route('/redis/mostViewedProduct')
-    .get(users.requiresLogin, users.hasAuthorization('admin'), redis.getMostViewedProducts)
+    .get(users.requiresLogin, users.hasAuthorization('admin'), redis.getMostViewedProducts);
 //    .post(users.requiresLogin, users.hasAuthorization('admin'), redis.addToMostViewedProduct)
 //    .put(users.requiresLogin, users.hasAuthorization('admin'), redis.updateMostViewedProduct)
 

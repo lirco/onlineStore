@@ -43,7 +43,7 @@ exports.hasAuthorization = function(roles) {
 
   return function(req, res, next) {
     _this.requiresLogin(req, res, function() {
-      if (_.intersection(req.user.roles[0], roles).length) {
+      if (req.user.roles[0] == roles) {
         return next();
       } else {
         return res.status(403).send({
