@@ -3,7 +3,7 @@
 
 (function () {
 
-  function newProductController(state, scope, Products, Authentication, AppState, AppData) {
+  function newProductController(state, scope, Products, Authentication, AppState, AppData, FileUploader) {
 
     var self = this;
 
@@ -30,6 +30,10 @@
       .success(function(data, status) {
         self.sizes = data;
       });
+
+    self.uploader = new FileUploader({
+      url: '/uploadImage'
+    });
 
 
     // Create new Product
@@ -64,7 +68,7 @@
   }
 
   angular.module('admin')
-    .controller('newProductController', ['$state', '$scope', 'Products', 'Authentication', 'AppStateService','AppDataFactory', newProductController])
+    .controller('newProductController', ['$state', '$scope', 'Products', 'Authentication', 'AppStateService','AppDataFactory', 'FileUploader', newProductController])
 
 }());
 
